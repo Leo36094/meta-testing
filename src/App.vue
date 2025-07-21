@@ -4,39 +4,28 @@ import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
 onMounted(() => {
   // add image & desc meta
-  const metas = [
-    {
-      name: "description",
-      content: "JS 產生的 meta description",
-    },
-    {
-      name: "image",
-      content:
-        "https://web.df.garena.com/03_news/news_banner/TWannouncement/20250314_MobileAnnouncement/1920TW.jpg",
-    },
-    {
-      name: "og:image",
-      content: "JS 產生的 meta image",
-    },
-    {
-      name: "og:description",
-      content: "JS 產生的 meta description",
-    },
-    {
-      name: "og:title",
-      content: "JS 產生的 meta title",
-    },
-    {
-      name: "og:url",
-      content: window.location.href,
-    },
-  ];
-  metas.forEach(({ name, content }) => {
-    const metaEl = document.createElement("meta");
-    metaEl.name = name;
-    metaEl.content = content;
-    document.head.appendChild(metaEl);
+  const metas = {
+    description: "JS 產生的 meta description",
+    image:
+      "https://web.df.garena.com/03_news/news_banner/TWannouncement/20250314_MobileAnnouncement/1920TW.jpg",
+    "og:image": "JS 產生的 meta image",
+    "og:description": "JS 產生的 meta description",
+    "og:title": "JS 產生的 meta title",
+    "og:url": window.location.href,
+  };
+
+  document.querySelectorAll("meta").forEach((meta) => {
+    // append meta
+    if (metas[meta.name]) {
+      meta.content = metas[meta.name];
+    }
   });
+  // metas.forEach(({ name, content }) => {
+  //   const metaEl = document.createElement("meta");
+  //   metaEl.name = name;
+  //   metaEl.content = content;
+  //   document.head.appendChild(metaEl);
+  // });
 });
 </script>
 
