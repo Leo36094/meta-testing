@@ -1,47 +1,54 @@
-<script setup lang="ts">
-import { onMounted } from 'vue';
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script setup>
+import { onMounted } from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
+import TheWelcome from "./components/TheWelcome.vue";
 onMounted(() => {
-    // add image & desc meta
-    const metas = [
+  // add image & desc meta
+  const metas = [
     {
-      name: 'description',
-      content: 'JS 產生的 meta description',
+      name: "description",
+      content: "JS 產生的 meta description",
     },
     {
-      name: 'image',
-      content: 'https://web.df.garena.com/03_news/news_banner/TWannouncement/20250314_MobileAnnouncement/1920TW.jpg',
+      name: "image",
+      content:
+        "https://web.df.garena.com/03_news/news_banner/TWannouncement/20250314_MobileAnnouncement/1920TW.jpg",
     },
     {
-      name: 'og:image',
-      content: 'JS 產生的 meta image',
+      name: "og:image",
+      content: "JS 產生的 meta image",
     },
     {
-      name: 'og:description',
-      content: 'JS 產生的 meta description',
+      name: "og:description",
+      content: "JS 產生的 meta description",
     },
     {
-      name: 'og:title',
-      content: 'JS 產生的 meta title',
+      name: "og:title",
+      content: "JS 產生的 meta title",
     },
     {
-      name: 'og:url',
+      name: "og:url",
       content: window.location.href,
     },
   ];
   metas.forEach(({ name, content }) => {
-    const metaEl = document.createElement('meta');
+    const metaEl = document.createElement("meta");
     metaEl.name = name;
     metaEl.content = content;
     document.head.appendChild(metaEl);
   });
-})
+});
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="./assets/logo.svg"
+      width="125"
+      height="125"
+    />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
